@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ojha Service - Expert Home Appliance Repairs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['Poppins', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        },
+                        accent: {
+                            400: '#f59e0b',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out',
+                        'fade-in': 'fadeIn 0.6s ease-out',
+                        'slide-in-left': 'slideInLeft 0.8s ease-out',
+                        'slide-in-right': 'slideInRight 0.8s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        slideInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'glass': 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))',
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hover-float {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-float:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-pattern {
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+        }
+        .service-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+        }
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.05);
+        }
+        .floating-icons {
+            animation: float 6s ease-in-out infinite;
+        }
+        .floating-icons:nth-child(2) { animation-delay: -2s; }
+        .floating-icons:nth-child(3) { animation-delay: -4s; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .scroll-smooth { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="font-sans text-gray-900 scroll-smooth">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-r from-primary-500 to-primary-700 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-tools text-white text-lg"></i>
+                    </div>
+                    <span class="text-xl font-display font-bold text-white">Ojha Service</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-white/90 hover:text-white transition-colors font-medium">Home</a>
+                    <a href="#services" class="text-white/90 hover:text-white transition-colors font-medium">Services</a>
+                    <a href="#about" class="text-white/90 hover:text-white transition-colors font-medium">About</a>
+                    <a href="#testimonials" class="text-white/90 hover:text-white transition-colors font-medium">Reviews</a>
+                    <a href="#contact" class="text-white/90 hover:text-white transition-colors font-medium">Contact</a>
+                    <a href="https://wa.me/+918454855804" target="_blank" 
+                       class="bg-gradient-to-r from-accent-400 to-accent-600 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
+                        <i class="fab fa-whatsapp mr-2"></i>Book Now
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-white" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden" id="mobile-menu">
+            <div class="flex justify-end">
+                <div class="bg-white w-64 h-full shadow-2xl">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-8">
+                            <span class="text-xl font-display font-bold text-gray-800">Menu</span>
+                            <button id="close-mobile-menu" class="text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-times text-xl"></i>
+                            </button>
+                        </div>
+                        <nav class="space-y-6">
+                            <a href="#home" class="block text-gray-700 hover:text-primary-600 font-medium transition-colors">Home</a>
+                            <a href="#services" class="block text-gray-700 hover:text-primary-600 font-medium transition-colors">Services</a>
+                            <a href="#about" class="block text-gray-700 hover:text-primary-600 font-medium transition-colors">About</a>
+                            <a href="#testimonials" class="block text-gray-700 hover:text-primary-600 font-medium transition-colors">Reviews</a>
+                            <a href="#contact" class="block text-gray-700 hover:text-primary-600 font-medium transition-colors">Contact</a>
+                            <a href="https://wa.me/+918454855804" target="_blank" 
+                               class="block bg-gradient-to-r from-accent-400 to-accent-600 text-white px-6 py-3 rounded-full font-semibold text-center hover:shadow-lg transition-all duration-300">
+                                <i class="fab fa-whatsapp mr-2"></i>Book Now
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 hero-pattern">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0">
+            <div class="floating-icons absolute top-20 left-10 text-6xl text-white/10">
+                <i class="fas fa-snowflake"></i>
+            </div>
+            <div class="floating-icons absolute top-40 right-20 text-5xl text-white/10">
+                <i class="fas fa-tshirt"></i>
+            </div>
+            <div class="floating-icons absolute bottom-40 left-20 text-7xl text-white/10">
+                <i class="fas fa-temperature-low"></i>
+            </div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
+            <div class="text-center animate-fade-in-up">
+                <h1 class="text-5xl md:text-7xl font-display font-bold text-white mb-6 leading-tight">
+                    <span class="block">Expert</span>
+                    <span class="text-gradient">Appliance Repairs</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Fast, reliable, and affordable home appliance repair services. 
+                    <span class="text-accent-400 font-semibold">24/7 emergency support</span> available.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+                    <a href="#contact" 
+                       class="bg-gradient-to-r from-primary-500 to-primary-700 text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center group">
+                        <i class="fas fa-phone-alt mr-3 group-hover:animate-bounce"></i>
+                        Get Free Quote
+                    </a>
+                    <a href="https://wa.me/+918454855804" target="_blank"
+                       class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center">
+                        <i class="fab fa-whatsapp mr-3"></i>
+                        WhatsApp Now
+                    </a>
+                </div>
+
+                <!-- Service Icons -->
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-4xl mx-auto">
+                    <div class="text-center group">
+                        <div class="w-16 h-16 mx-auto bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-snowflake text-2xl text-blue-300"></i>
+                        </div>
+                        <p class="text-white/80 font-medium">AC Repair</p>
+                    </div>
+                    <div class="text-center group">
+                        <div class="w-16 h-16 mx-auto bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-tshirt text-2xl text-green-300"></i>
+                        </div>
+                        <p class="text-white/80 font-medium">Washing Machine</p>
+                    </div>
+                    <div class="text-center group">
+                        <div class="w-16 h-16 mx-auto bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-temperature-low text-2xl text-purple-300"></i>
+                        </div>
+                        <p class="text-white/80 font-medium">Refrigerator</p>
+                    </div>
+                    <div class="text-center group">
+                        <div class="w-16 h-16 mx-auto bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-microchip text-2xl text-orange-300"></i>
+                        </div>
+                        <p class="text-white/80 font-medium">Microwave</p>
+                    </div>
+                    <div class="text-center group">
+                        <div class="w-16 h-16 mx-auto bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-tools text-2xl text-yellow-300"></i>
+                        </div>
+                        <p class="text-white/80 font-medium">All Appliances</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white/60 text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-4">
+                    Our <span class="text-gradient">Expert Services</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Professional repair services for all your home appliances with guaranteed satisfaction
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- AC Repair -->
+                <div class="service-card rounded-3xl p-8 hover-float group">
+                    <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-snowflake text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-gray-900 mb-4">AC Repair & Service</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Complete air conditioning solutions including repair, maintenance, gas refilling, and installation services.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Emergency repairs</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Gas refilling</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Filter cleaning</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Installation</li>
+                    </ul>
+                    <a href="#contact" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold group">
+                        Book Service <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Washing Machine -->
+                <div class="service-card rounded-3xl p-8 hover-float group">
+                    <div class="w-16 h-16 bg-gradient-to-r from-green-400 to-green-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-tshirt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-gray-900 mb-4">Washing Machine</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Expert repair services for all brands of washing machines, both automatic and semi-automatic.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Motor repairs</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Drum replacement</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Water pump issues</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Control panel</li>
+                    </ul>
+                    <a href="#contact" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold group">
+                        Book Service <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Refrigerator -->
+                <div class="service-card rounded-3xl p-8 hover-float group">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-temperature-low text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-gray-900 mb-4">Refrigerator Repair</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Keep your food fresh with our comprehensive refrigerator repair and maintenance services.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Cooling issues</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Compressor repair</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Thermostat</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Gas refilling</li>
+                    </ul>
+                    <a href="#contact" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold group">
+                        Book Service <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Microwave -->
+                <div class="service-card rounded-3xl p-8 hover-float group">
+                    <div class="w-16 h-16 bg-gradient-to-r from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-microchip text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-gray-900 mb-4">Microwave Oven</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Professional microwave repair services including magnetron, turntable, and control panel issues.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Not heating</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Turntable issues</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Door problems</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Control panel</li>
+                    </ul>
+                    <a href="#contact" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold group">
+                        Book Service <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+
+
+                <!-- Other Appliances -->
+                <div class="service-card rounded-3xl p-8 hover-float group">
+                    <div class="w-16 h-16 bg-gradient-to-r from-indigo-400 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-tools text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-gray-900 mb-4">Other Appliances</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        We repair various home appliances including dishwashers, ovens, dryers, and more.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Dishwashers</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Electric ovens</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Dryers</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Small appliances</li>
+                    </ul>
+                    <a href="#contact" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold group">
+                        Book Service <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-4">
+                    Transparent <span class="text-gradient">Pricing</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    No hidden charges, no surprises. Know what you'll pay upfront.
+                </p>
+                <div class="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold mt-4">
+                    <i class="fas fa-shield-alt mr-2"></i>
+                    First-time customers get 10% off
+                </div>
+            </div>
+
+            <!-- Service Visit Charge -->
+            <div class="bg-white rounded-3xl shadow-xl p-8 mb-12 border border-blue-200">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-home text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Service Visit Charge</h3>
+                    <div class="text-4xl font-bold text-primary-600 mb-2">₹150</div>
+                    <p class="text-gray-600 mb-4">For diagnosis and minor repairs within 30 minutes</p>
+                    <div class="inline-flex items-center bg-accent-100 text-accent-800 px-3 py-1 rounded-full text-sm">
+                        <i class="fas fa-gift mr-1"></i>
+                        Waived if you proceed with major repair
+                    </div>
+                </div>
+            </div>
+
+            <!-- Repair Pricing Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- AC Services -->
+                <div class="bg-white rounded-3xl shadow-lg hover-float p-8 border border-blue-100">
+                    <div class="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-snowflake text-xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-6">AC Services</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Gas Refilling</span>
+                            <span class="font-semibold text-gray-900">₹1,800 - ₹2,500</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">General Service</span>
+                            <span class="font-semibold text-gray-900">₹800 - ₹1,200</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Filter Cleaning</span>
+                            <span class="font-semibold text-gray-900">₹300 - ₹500</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">PCB Repair</span>
+                            <span class="font-semibold text-gray-900">₹1,500 - ₹3,000</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Compressor Issue</span>
+                            <span class="font-semibold text-gray-900">₹3,500 - ₹8,000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Washing Machine -->
+                <div class="bg-white rounded-3xl shadow-lg hover-float p-8 border border-green-100">
+                    <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-green-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-tshirt text-xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-6">Washing Machine</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Motor Repair</span>
+                            <span class="font-semibold text-gray-900">₹1,200 - ₹2,500</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Water Pump</span>
+                            <span class="font-semibold text-gray-900">₹800 - ₹1,500</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Door Lock</span>
+                            <span class="font-semibold text-gray-900">₹500 - ₹1,000</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">PCB/Timer</span>
+                            <span class="font-semibold text-gray-900">₹1,000 - ₹2,000</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">General Service</span>
+                            <span class="font-semibold text-gray-900">₹600 - ₹900</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Refrigerator -->
+                <div class="bg-white rounded-3xl shadow-lg hover-float p-8 border border-purple-100">
+                    <div class="w-12 h-12 bg-gradient-to-r from-purple-400 to-purple-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-temperature-low text-xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-6">Refrigerator</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Gas Refilling</span>
+                            <span class="font-semibold text-gray-900">₹2,000 - ₹3,500</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Thermostat</span>
+                            <span class="font-semibold text-gray-900">₹800 - ₹1,500</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Door Seal</span>
+                            <span class="font-semibold text-gray-900">₹1,200 - ₹2,000</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Compressor</span>
+                            <span class="font-semibold text-gray-900">₹4,000 - ₹8,000</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">General Service</span>
+                            <span class="font-semibold text-gray-900">₹500 - ₹800</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Services -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                <!-- Microwave Services -->
+                <div class="bg-white rounded-3xl shadow-lg p-8 border border-orange-100">
+                    <div class="w-12 h-12 bg-gradient-to-r from-orange-400 to-orange-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-microchip text-xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-6">Microwave Services</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Microwave Repair</span>
+                            <span class="font-semibold text-gray-900">₹800 - ₹2,000</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Magnetron Replace</span>
+                            <span class="font-semibold text-gray-900">₹2,500 - ₹4,000</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Turntable Motor</span>
+                            <span class="font-semibold text-gray-900">₹500 - ₹1,000</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Door Switch</span>
+                            <span class="font-semibold text-gray-900">₹300 - ₹800</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Emergency & Additional -->
+                <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-3xl shadow-lg p-8 border-2 border-red-200">
+                    <div class="w-12 h-12 bg-gradient-to-r from-red-400 to-red-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-bolt text-xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-6">Emergency & Extra</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Emergency Call (Night)</span>
+                            <span class="font-semibold text-gray-900">+₹200</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Same Day Service</span>
+                            <span class="font-semibold text-green-600">Free</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Parts Warranty</span>
+                            <span class="font-semibold text-green-600">3-6 months</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Important Notes -->
+            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6 mt-12">
+                <div class="flex items-start">
+                    <div class="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                        <i class="fas fa-info-circle text-amber-600"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-amber-900 mb-2">Important Notes:</h4>
+                        <ul class="space-y-2 text-sm text-amber-800">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-amber-600 mr-2 mt-0.5 text-xs"></i>
+                                Prices may vary based on appliance brand, model, and issue complexity
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-amber-600 mr-2 mt-0.5 text-xs"></i>
+                                All genuine spare parts with warranty included in the price
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-amber-600 mr-2 mt-0.5 text-xs"></i>
+                                Free estimate provided before starting any major repair work
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-amber-600 mr-2 mt-0.5 text-xs"></i>
+                                No extra charges for labor within Mumbai city limits
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="text-center mt-12">
+                <a href="https://wa.me/+918454855804?text=Hi! I'd like to get a free estimate for my appliance repair." 
+                   target="_blank"
+                   class="bg-gradient-to-r from-primary-500 to-primary-700 text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center">
+                    <i class="fab fa-whatsapp mr-3"></i>
+                    Get Free Estimate Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-4">
+                    Why Choose <span class="text-gradient">Ojha Service?</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    We're committed to providing the best appliance repair experience
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center group">
+                    <div class="w-20 h-20 mx-auto bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-clock text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">24/7 Service</h3>
+                    <p class="text-gray-600">Emergency repair services available round the clock for urgent issues</p>
+                </div>
+                
+                <div class="text-center group">
+                    <div class="w-20 h-20 mx-auto bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-shield-alt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Guaranteed Work</h3>
+                    <p class="text-gray-600">All repairs come with warranty and satisfaction guarantee</p>
+                </div>
+                
+                <div class="text-center group">
+                    <div class="w-20 h-20 mx-auto bg-gradient-to-r from-purple-400 to-purple-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-user-tie text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Expert Technicians</h3>
+                    <p class="text-gray-600">Certified and experienced professionals with years of expertise</p>
+                </div>
+                
+                <div class="text-center group">
+                    <div class="w-20 h-20 mx-auto bg-gradient-to-r from-orange-400 to-orange-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-dollar-sign text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Fair Pricing</h3>
+                    <p class="text-gray-600">Transparent and competitive pricing with no hidden charges</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips & Resources Section -->
+    <section class="py-20 bg-gradient-to-br from-indigo-50 to-purple-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-4">
+                    Expert <span class="text-gradient">Tips & Advice</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Save money and extend your appliances' life with these professional tips
+                </p>
+            </div>
+
+            <!-- Maintenance Tips Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- AC Maintenance -->
+                <div class="bg-white rounded-3xl shadow-lg hover-float p-8 border border-blue-100">
+                    <div class="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-snowflake text-xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">AC Maintenance Tips</h3>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2 mt-1 text-xs"></i>
+                            Clean filters every 2-3 weeks during heavy use
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2 mt-1 text-xs"></i>
+                            Keep outdoor unit free from dust and debris
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2 mt-1 text-xs"></i>
+                            Don't set temperature below 24°C to save electricity
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2 mt-1 text-xs"></i>
+                            Service before summer starts (March-April)
+                        </li>
+                    </ul>
+                    <div class="mt-6 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
+                        <p class="text-sm text-yellow-800">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>
+                            <strong>Call us if:</strong> AC not cooling, strange noise, or high electricity bill
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Washing Machine Care -->
+                <div class="bg-white rounded-3xl shadow-lg hover-float p-8 border border-green-100">
+                    <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-green-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-tshirt text-xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Washing Machine Care</h3>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2 mt-1 text-xs"></i>
+                            Don't overload - fill only 3/4 capacity
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2 mt-1 text-xs"></i>
+                            Clean lint filter after every use
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2 mt-1 text-xs"></i>
+                            Leave door open after wash to air dry
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2 mt-1 text-xs"></i>
+                            Run empty hot water cycle monthly
+                        </li>
+                    </ul>
+                    <div class="mt-6 p-3 bg-red-50 rounded-lg border border-red-200">
+                        <p class="text-sm text-red-800">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>
+                            <strong>Warning signs:</strong> Excessive vibration, water not draining, or unusual noise
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Refrigerator Tips -->
+                <div class="bg-white rounded-3xl shadow-lg hover-float p-8 border border-purple-100">
+                    <div class="w-12 h-12 bg-gradient-to-r from-purple-400 to-purple-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-temperature-low text-xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Refrigerator Care</h3>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2 mt-1 text-xs"></i>
+                            Keep fridge 3/4 full for optimal efficiency
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2 mt-1 text-xs"></i>
+                            Clean coils at back every 6 months
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2 mt-1 text-xs"></i>
+                            Check door seals regularly for cracks
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2 mt-1 text-xs"></i>
+                            Don't put hot food directly inside
+                        </li>
+                    </ul>
+                    <div class="mt-6 p-3 bg-blue-50 rounded-lg border border-blue-200">
+                        <p class="text-sm text-blue-800">
+                            <i class="fas fa-info-circle mr-2"></i>
+                            <strong>Energy saving:</strong> Set temperature to 37-40°F (3-4°C)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seasonal Service Reminders -->
+            <div class="bg-white rounded-3xl shadow-xl p-8 mb-12">
+                <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+                    <i class="fas fa-calendar-alt text-primary-500 mr-3"></i>
+                    Seasonal Service Schedule
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-seedling text-2xl text-white"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-2">Spring (March-May)</h4>
+                        <p class="text-sm text-gray-600">AC deep cleaning & gas check before summer heat</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-sun text-2xl text-white"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-2">Summer (June-Aug)</h4>
+                        <p class="text-sm text-gray-600">Refrigerator maintenance & microwave service check</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-orange-400 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-leaf text-2xl text-white"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-2">Monsoon (Sep-Nov)</h4>
+                        <p class="text-sm text-gray-600">Washing machine deep clean & electrical safety check</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-snowflake text-2xl text-white"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-2">Winter (Dec-Feb)</h4>
+                        <p class="text-sm text-gray-600">General appliance check-up & maintenance service</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cost Saving Tips -->
+            <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-3xl p-8 border border-green-200">
+                <div class="text-center mb-8">
+                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-piggy-bank text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Money-Saving Tips</h3>
+                    <p class="text-gray-600">Simple steps that can save you thousands on repairs</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-4 flex items-center">
+                            <i class="fas fa-phone text-green-600 mr-2"></i>
+                            Call Before Replacing
+                        </h4>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-rupee-sign text-green-500 mr-2 mt-1 text-xs"></i>
+                                80% of "broken" appliances just need simple repairs
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-rupee-sign text-green-500 mr-2 mt-1 text-xs"></i>
+                                Free diagnosis over WhatsApp with photos
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-rupee-sign text-green-500 mr-2 mt-1 text-xs"></i>
+                                Repair costs 70% less than buying new
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-4 flex items-center">
+                            <i class="fas fa-tools text-green-600 mr-2"></i>
+                            Regular Maintenance Saves Money
+                        </h4>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-rupee-sign text-green-500 mr-2 mt-1 text-xs"></i>
+                                Annual service prevents 90% of major breakdowns
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-rupee-sign text-green-500 mr-2 mt-1 text-xs"></i>
+                                Clean appliances use 20% less electricity
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-rupee-sign text-green-500 mr-2 mt-1 text-xs"></i>
+                                Extends appliance life by 3-5 years
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emergency Contact CTA -->
+            <div class="text-center mt-12">
+                <div class="inline-flex items-center bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                    Appliance emergency? Don't wait - call now!
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="tel:+918454855804" 
+                       class="bg-gradient-to-r from-red-500 to-red-700 text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center justify-center">
+                        <i class="fas fa-phone mr-3"></i>
+                        Emergency Call
+                    </a>
+                    <a href="https://wa.me/+918454855804?text=Hi! I have an appliance emergency. Can you help?" 
+                       target="_blank"
+                       class="bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center justify-center">
+                        <i class="fab fa-whatsapp mr-3"></i>
+                        WhatsApp Help
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="animate-slide-in-left">
+                    <h2 class="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-6">
+                        About <span class="text-gradient">Ojha Service</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        With over a decade of experience in home appliance repairs, Ojha Service has become 
+                        the most trusted name in the industry. We pride ourselves on delivering fast, 
+                        reliable, and affordable solutions that keep your home running smoothly.
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-check text-green-600"></i>
+                            </div>
+                            <span class="text-gray-700 font-medium">10+ Years of Experience</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-check text-green-600"></i>
+                            </div>
+                            <span class="text-gray-700 font-medium">5000+ Happy Customers</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-check text-green-600"></i>
+                            </div>
+                            <span class="text-gray-700 font-medium">Same Day Service Available</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-check text-green-600"></i>
+                            </div>
+                            <span class="text-gray-700 font-medium">All Major Brands Serviced</span>
+                        </div>
+                    </div>
+
+                    <a href="#contact" 
+                       class="bg-gradient-to-r from-primary-500 to-primary-700 text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center">
+                        <i class="fas fa-phone-alt mr-3"></i>
+                        Contact Us Today
+                    </a>
+                </div>
+
+                <div class="animate-slide-in-right">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" 
+                             alt="Professional technician working" 
+                             class="rounded-3xl shadow-2xl hover-float">
+                        <div class="absolute -bottom-8 -right-8 bg-white rounded-2xl p-6 shadow-xl">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-primary-600">5000+</div>
+                                <div class="text-sm text-gray-600">Repairs Done</div>
+                            </div>
+                        </div>
+                        <div class="absolute -top-8 -left-8 bg-accent-400 rounded-2xl p-6 shadow-xl">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-white">⭐ 4.9</div>
+                                <div class="text-sm text-white/80">Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-4">
+                    What Our <span class="text-gradient">Customers Say</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Don't just take our word for it - hear from our satisfied customers
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card rounded-3xl p-8 hover-float">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">S</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Sarah Johnson</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        "Amazing service! My AC broke down during the summer heat, and they fixed it within 2 hours. 
+                        Professional, quick, and reasonably priced. Highly recommend!"
+                    </p>
+                    <div class="mt-4 text-sm text-gray-500">
+                        <i class="fas fa-calendar-alt mr-2"></i>2 weeks ago
+                    </div>
+                </div>
+
+                <div class="testimonial-card rounded-3xl p-8 hover-float">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">M</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Michael Chen</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        "Excellent washing machine repair service. The technician was knowledgeable, explained the issue clearly, 
+                        and fixed it perfectly. Great customer service!"
+                    </p>
+                    <div class="mt-4 text-sm text-gray-500">
+                        <i class="fas fa-calendar-alt mr-2"></i>1 month ago
+                    </div>
+                </div>
+
+                <div class="testimonial-card rounded-3xl p-8 hover-float">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">E</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Emily Rodriguez</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        "Quick response time and professional service. My refrigerator is working like new again. 
+                        Fair pricing and honest work. Will definitely use again!"
+                    </p>
+                    <div class="mt-4 text-sm text-gray-500">
+                        <i class="fas fa-calendar-alt mr-2"></i>3 weeks ago
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Indicators -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-3xl font-bold text-primary-600 mb-2">5000+</div>
+                    <div class="text-gray-600">Repairs Completed</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-primary-600 mb-2">4.9/5</div>
+                    <div class="text-gray-600">Average Rating</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-primary-600 mb-2">24/7</div>
+                    <div class="text-gray-600">Service Available</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-primary-600 mb-2">10+</div>
+                    <div class="text-gray-600">Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-4">
+                    Get In <span class="text-gradient">Touch</span>
+                </h2>
+                <p class="text-xl text-white/80 max-w-2xl mx-auto">
+                    Ready to get your appliances fixed? Contact us for a free estimate
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Contact Form -->
+                <div class="glass-effect rounded-3xl p-8">
+                    <h3 class="text-2xl font-bold text-white mb-6">Send us a message</h3>
+                    <form class="space-y-6" id="contact-form">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <input type="text" placeholder="Your Name" required
+                                       class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:border-primary-400 transition-colors">
+                            </div>
+                            <div>
+                                <input type="tel" placeholder="Phone Number" required
+                                       class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:border-primary-400 transition-colors">
+                            </div>
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Email Address"
+                                   class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:border-primary-400 transition-colors">
+                        </div>
+                        <div>
+                            <select required class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white focus:outline-none focus:border-primary-400 transition-colors">
+                                <option value="" disabled selected class="text-gray-900">Select Service Type</option>
+                                <option value="ac" class="text-gray-900">AC Repair</option>
+                                <option value="washing" class="text-gray-900">Washing Machine</option>
+                                <option value="refrigerator" class="text-gray-900">Refrigerator</option>
+                                <option value="microwave" class="text-gray-900">Microwave</option>
+                                <option value="other" class="text-gray-900">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <textarea placeholder="Describe the issue..." rows="4" required
+                                      class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:border-primary-400 transition-colors resize-none"></textarea>
+                        </div>
+                        <button type="submit" 
+                                class="w-full bg-gradient-to-r from-primary-500 to-primary-700 text-white px-8 py-4 rounded-xl text-lg font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <!-- Quick Contact -->
+                    <div class="glass-effect rounded-3xl p-8">
+                        <h3 class="text-2xl font-bold text-white mb-6">Quick Contact</h3>
+                        <div class="space-y-6">
+                            <a href="tel:+918454855804" class="flex items-center group">
+                                <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-green-600 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <div class="text-white font-semibold">Call Now</div>
+                                    <div class="text-white/80">+91 84548 55804</div>
+                                </div>
+                            </a>
+                            
+                            <a href="https://wa.me/+918454855804" target="_blank" class="flex items-center group">
+                                <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                                    <i class="fab fa-whatsapp text-white"></i>
+                                </div>
+                                <div>
+                                    <div class="text-white font-semibold">WhatsApp</div>
+                                    <div class="text-white/80">Chat with us instantly</div>
+                                </div>
+                            </a>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <div class="text-white font-semibold">Email</div>
+                                    <div class="text-white/80">contact@ojhaservice.com</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gradient-to-r from-purple-400 to-purple-600 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <div class="text-white font-semibold">Service Area</div>
+                                    <div class="text-white/80">Mumbai & Greater Metro Area</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Hours -->
+                    <div class="glass-effect rounded-3xl p-8">
+                        <h3 class="text-2xl font-bold text-white mb-6">Service Hours</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-white/80">Monday - Friday</span>
+                                <span class="text-white font-semibold">8:00 AM - 8:00 PM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-white/80">Saturday</span>
+                                <span class="text-white font-semibold">9:00 AM - 6:00 PM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-white/80">Sunday</span>
+                                <span class="text-white font-semibold">10:00 AM - 4:00 PM</span>
+                            </div>
+                            <div class="border-t border-white/20 pt-3 mt-4">
+                                <div class="flex justify-between">
+                                    <span class="text-white/80">Emergency Service</span>
+                                    <span class="text-accent-400 font-semibold">24/7 Available</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-r from-primary-500 to-primary-700 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-tools text-white"></i>
+                        </div>
+                        <span class="text-2xl font-display font-bold">Ojha Service</span>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed mb-6 max-w-md">
+                        Your trusted partner for all home appliance repairs. Fast, reliable, and affordable 
+                        services with guaranteed satisfaction.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors">Reviews</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><span class="text-gray-400">AC Repair & Service</span></li>
+                        <li><span class="text-gray-400">Washing Machine</span></li>
+                        <li><span class="text-gray-400">Refrigerator</span></li>
+                        <li><span class="text-gray-400">Microwave Oven</span></li>
+                        <li><span class="text-gray-400">Small Appliances</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    © 2024 Ojha Service. All rights reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenu = document.getElementById('close-mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        // Close mobile menu when clicking outside
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('#mobile-menu a[href^="#"]').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Navbar background change on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(15, 23, 42, 0.95)';
+            } else {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const name = formData.get('name') || e.target.querySelector('input[placeholder="Your Name"]').value;
+            const phone = formData.get('phone') || e.target.querySelector('input[placeholder="Phone Number"]').value;
+            const service = e.target.querySelector('select').value;
+            const message = e.target.querySelector('textarea').value;
+            
+            // Create WhatsApp message
+            const whatsappMessage = `Hi! I need appliance repair service.%0A%0AName: ${name}%0APhone: ${phone}%0AService: ${service}%0AMessage: ${message}`;
+            
+            // Open WhatsApp
+            window.open(`https://wa.me/+918454855804?text=${whatsappMessage}`, '_blank');
+            
+            // Show success message
+            alert('Thank you! Redirecting to WhatsApp...');
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animations
+        document.querySelectorAll('section > div').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
