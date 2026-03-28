@@ -133,15 +133,15 @@ const MONEY_TIPS = {
 /* ── Component ─────────────────────────────────────────────────── */
 export default function Tips() {
   return (
-    <section className="py-20 bg-gradient-to-br from-indigo-50 to-purple-50">
+    <section className="py-20 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-gray-950 dark:to-slate-900 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-white mb-4">
             Expert <span className="text-gradient">Tips &amp; Advice</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Save money and extend your appliances' life with these professional tips
           </p>
         </div>
@@ -151,15 +151,15 @@ export default function Tips() {
           {TIPS.map((t) => (
             <div
               key={t.title}
-              className={`bg-white rounded-3xl shadow-lg hover-float p-8 border ${t.border}`}
+              className="bg-white dark:bg-gray-800 rounded-3xl shadow-lg hover-float p-8 border border-gray-100 dark:border-gray-700 transition-colors duration-300"
             >
               <div
                 className={`w-12 h-12 bg-gradient-to-r ${t.gradient} rounded-xl flex items-center justify-center mb-6`}
               >
                 <FontAwesomeIcon icon={t.icon} className="text-xl text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">{t.title}</h3>
-              <ul className="space-y-3 text-sm text-gray-600">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">{t.title}</h3>
+              <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
                 {t.tips.map((tip) => (
                   <li key={tip} className="flex items-start">
                     <FontAwesomeIcon
@@ -183,8 +183,8 @@ export default function Tips() {
         </div>
 
         {/* Seasonal schedule */}
-        <div className="bg-white rounded-3xl shadow-xl p-8 mb-12">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+        <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 mb-12 transition-colors duration-300">
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
             <FontAwesomeIcon icon={faCalendarAlt} className="text-primary-500 mr-3" />
             Seasonal Service Schedule
           </h3>
@@ -196,31 +196,31 @@ export default function Tips() {
                 >
                   <FontAwesomeIcon icon={s.icon} className="text-2xl text-white" />
                 </div>
-                <h4 className="font-bold text-gray-900 mb-2">{s.title}</h4>
-                <p className="text-sm text-gray-600">{s.desc}</p>
+                <h4 className="font-bold text-gray-900 dark:text-white mb-2">{s.title}</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{s.desc}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Money-saving tips */}
-        <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-3xl p-8 border border-green-200">
+        <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-950/30 dark:to-emerald-950/20 rounded-3xl p-8 border border-green-200 dark:border-green-900/50 transition-colors duration-300">
           <div className="text-center mb-8">
             <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <FontAwesomeIcon icon={faPiggyBank} className="text-2xl text-white" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Money-Saving Tips</h3>
-            <p className="text-gray-600">Simple steps that can save you thousands on repairs</p>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Money-Saving Tips</h3>
+            <p className="text-gray-600 dark:text-gray-400">Simple steps that can save you thousands on repairs</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[MONEY_TIPS.left, MONEY_TIPS.right].map((col) => (
               <div key={col.title}>
-                <h4 className="font-bold text-gray-900 mb-4 flex items-center">
-                  <FontAwesomeIcon icon={col.icon} className="text-green-600 mr-2" />
+                <h4 className="font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+                  <FontAwesomeIcon icon={col.icon} className="text-green-600 dark:text-green-400 mr-2" />
                   {col.title}
                 </h4>
-                <ul className="space-y-2 text-sm text-gray-600">
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                   {col.items.map((item) => (
                     <li key={item} className="flex items-start">
                       <FontAwesomeIcon
@@ -238,7 +238,7 @@ export default function Tips() {
 
         {/* Emergency CTA */}
         <div className="text-center mt-12">
-          <div className="inline-flex items-center bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+          <div className="inline-flex items-center bg-red-100 dark:bg-red-950/40 text-red-800 dark:text-red-300 px-4 py-2 rounded-full text-sm font-semibold mb-6">
             <FontAwesomeIcon icon={faExclamationTriangle} className="mr-2" />
             Appliance emergency? Don't wait – call now!
           </div>

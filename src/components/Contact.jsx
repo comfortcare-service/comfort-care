@@ -39,7 +39,7 @@ function ContactForm() {
     window.open(`https://wa.me/+918454855804?text=${text}`, '_blank');
   };
 
-  const inputCls =
+const inputCls =
     'w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:border-primary-400 transition-colors';
 
   return (
@@ -84,7 +84,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"
+      className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 dark:from-gray-950 dark:via-slate-900 dark:to-gray-950 transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -115,7 +115,7 @@ export default function Contact() {
               <div className="space-y-6">
 
                 <a href="tel:+918454855804" className="flex items-center group">
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-green-600 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-green-600 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shrink-0">
                     <FontAwesomeIcon icon={faPhone} className="text-white" />
                   </div>
                   <div>
@@ -130,7 +130,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="flex items-center group"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shrink-0">
                     <FontAwesomeIcon icon={faWhatsapp} className="text-white" />
                   </div>
                   <div>
@@ -140,7 +140,7 @@ export default function Contact() {
                 </a>
 
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mr-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mr-4 shrink-0">
                     <FontAwesomeIcon icon={faEnvelope} className="text-white" />
                   </div>
                   <div>
@@ -150,7 +150,7 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-400 to-purple-600 rounded-xl flex items-center justify-center mr-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-purple-400 to-purple-600 rounded-xl flex items-center justify-center mr-4 shrink-0">
                     <FontAwesomeIcon icon={faMapMarkerAlt} className="text-white" />
                   </div>
                   <div>

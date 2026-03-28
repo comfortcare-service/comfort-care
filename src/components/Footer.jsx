@@ -32,7 +32,7 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-gray-900 dark:bg-gray-950 text-white py-12 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
 
@@ -55,7 +55,7 @@ export default function Footer() {
                 <a
                   key={href + icon.iconName}
                   href={href}
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors"
+                  className="w-10 h-10 bg-gray-800 dark:bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors"
                   aria-label={icon.iconName}
                 >
                   <FontAwesomeIcon icon={icon} />
@@ -66,7 +66,7 @@ export default function Footer() {
 
           {/* Quick links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
             <ul className="space-y-2">
               {NAV_LINKS.map(({ href, label }) => (
                 <li key={href}>
@@ -83,7 +83,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Services</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Services</h3>
             <ul className="space-y-2">
               {SERVICES.map((s) => (
                 <li key={s}>
@@ -96,7 +96,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-gray-800 dark:border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
             © {new Date().getFullYear()} QuickCool Repairs. All rights reserved.
           </p>

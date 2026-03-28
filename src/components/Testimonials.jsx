@@ -52,15 +52,15 @@ function StarRating({ rating }) {
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-20 bg-white">
+    <section id="testimonials" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-white mb-4">
             What Our <span className="text-gradient">Customers Say</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Don't just take our word for it – hear from our satisfied customers
           </p>
         </div>
@@ -76,12 +76,12 @@ export default function Testimonials() {
                   <span className="text-white font-bold">{r.initials}</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900">{r.name}</h4>
+                  <h4 className="font-bold text-gray-900 dark:text-white">{r.name}</h4>
                   <StarRating rating={r.rating} />
                 </div>
               </div>
-              <p className="text-gray-600 leading-relaxed">{r.text}</p>
-              <div className="mt-4 text-sm text-gray-500">
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{r.text}</p>
+              <div className="mt-4 text-sm text-gray-500 dark:text-gray-500">
                 <FontAwesomeIcon icon={faCalendarAlt} className="mr-2" />
                 {r.ago}
               </div>
@@ -93,8 +93,8 @@ export default function Testimonials() {
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {STATS.map((s) => (
             <div key={s.label}>
-              <div className="text-3xl font-bold text-primary-600 mb-2">{s.value}</div>
-              <div className="text-gray-600">{s.label}</div>
+              <div className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">{s.value}</div>
+              <div className="text-gray-600 dark:text-gray-400">{s.label}</div>
             </div>
           ))}
         </div>

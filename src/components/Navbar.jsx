@@ -1,10 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTools, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faTools, faBars, faTimes, faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { useTheme } from '../components/ThemeProvider';
 
 const NAV_LINKS = [
   { href: '#home',         label: 'Home' },
@@ -17,8 +17,9 @@ const NAV_LINKS = [
 const WHATSAPP_URL = 'https://wa.me/+918454855804';
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen]   = useState(false);
-  const [scrolled, setScrolled]   = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled]  = useState(false);
+  const { dark, toggle }         = useTheme();
 
   /* ── darken navbar after 50 px scroll ── */
   useEffect(() => {
@@ -59,7 +60,7 @@ export default function Navbar() {
               </span>
             </div>
 
-            {/* Desktop links */}
+            {/* Desktop links + toggle */}
             <div className="hidden md:flex items-center space-x-8">
               {NAV_LINKS.map(({ href, label }) => (
                 <a
@@ -70,6 +71,17 @@ export default function Navbar() {
                   {label}
                 </a>
               ))}
+
+              {/* Dark / light toggle */}
+              <button
+                onClick={toggle}
+                aria-label="Toggle dark mode"
+                className="theme-toggle"
+                title={dark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              >
+                <FontAwesomeIcon icon={dark ? faSun : faMoon} className="text-white text-lg" />
+              </button>
+
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
@@ -81,14 +93,19 @@ export default function Navbar() {
               </a>
             </div>
 
-            {/* Hamburger */}
-            <button
-              className="md:hidden text-white"
-              onClick={() => setMenuOpen(true)}
-              aria-label="Open menu"
-            >
-              <FontAwesomeIcon icon={faBars} className="text-xl" />
-            </button>
+            {/* Mobile: toggle + hamburger */}
+            <div className="md:hidden flex items-center space-x-3">
+              <button onClick={toggle} aria-label="Toggle dark mode" className="theme-toggle">
+                <FontAwesomeIcon icon={dark ? faSun : faMoon} className="text-white text-base" />
+              </button>
+              <button
+                className="text-white"
+                onClick={() => setMenuOpen(true)}
+                aria-label="Open menu"
+              >
+                <FontAwesomeIcon icon={faBars} className="text-xl" />
+              </button>
+            </div>
           </div>
         </div>
       </nav>
@@ -99,13 +116,13 @@ export default function Navbar() {
           className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex justify-end"
           onClick={(e) => e.target === e.currentTarget && setMenuOpen(false)}
         >
-          <div className="bg-white w-64 h-full shadow-2xl p-6 flex flex-col">
+          <div className="bg-white dark:bg-gray-900 w-64 h-full shadow-2xl p-6 flex flex-col transition-colors duration-300">
             <div className="flex justify-between items-center mb-8">
-              <span className="text-xl font-display font-bold text-gray-800">Menu</span>
+              <span className="text-xl font-display font-bold text-gray-800 dark:text-gray-100">Menu</span>
               <button
                 onClick={() => setMenuOpen(false)}
                 aria-label="Close menu"
-                className="text-gray-500 hover:text-gray-700"
+                className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
               >
                 <FontAwesomeIcon icon={faTimes} className="text-xl" />
               </button>
@@ -116,8 +133,8 @@ export default function Navbar() {
                 <a
                   key={href}
                   href={href}
-                  onClick={handleAnchorClick}
-                  className="block text-gray-700 hover:text-primary-600 font-medium transition-colors"
+                  onClick={() => setMenuOpen(false)}
+                  className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
                 >
                   {label}
                 </a>

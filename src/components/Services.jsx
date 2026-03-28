@@ -54,15 +54,15 @@ const SERVICES = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section id="services" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-950 dark:to-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ── Section header ───────────────────────────────────────── */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-white mb-4">
             Our <span className="text-gradient">Expert Services</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Professional repair services for all your home appliances with guaranteed satisfaction
           </p>
         </div>
@@ -79,15 +79,15 @@ export default function Services() {
               </div>
 
               {/* Title */}
-              <h3 className="text-2xl font-display font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-display font-bold text-gray-900 dark:text-white mb-4">
                 {svc.title}
               </h3>
 
               {/* Description */}
-              <p className="text-gray-600 mb-6 leading-relaxed">{svc.description}</p>
+              <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">{svc.description}</p>
 
               {/* Feature list */}
-              <ul className="space-y-2 text-sm text-gray-600 mb-6">
+              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
                 {svc.points.map((point) => (
                   <li key={point} className="flex items-center">
                     <FontAwesomeIcon icon={faCheck} className="text-green-500 mr-2" />
@@ -99,7 +99,7 @@ export default function Services() {
               {/* CTA link */}
               <a
                 href="#contact"
-                className="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold group/link"
+                className="inline-flex items-center text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-semibold group/link"
               >
                 Book Service{' '}
                 <FontAwesomeIcon
