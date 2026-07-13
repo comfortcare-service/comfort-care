@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Smooth scroll ──────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Dark mode base overrides ───────────────────────────────────── */
+body {
+  @apply bg-white text-gray-900 transition-colors duration-300;
+}
+.dark body {
+  @apply bg-gray-950 text-gray-100;
+}
+
+/* ── Glass effect ───────────────────────────────────────────────── */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ── Hover float ────────────────────────────────────────────────── */
+.hover-float {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-float:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+.dark .hover-float:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Text gradient ──────────────────────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Hero pattern ───────────────────────────────────────────────── */
+.hero-pattern {
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.1)  0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(139, 92, 246, 0.1)  0%, transparent 50%);
+}
+
+/* ── Service card ───────────────────────────────────────────────── */
+.service-card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+}
+.dark .service-card {
+  background: linear-gradient(145deg, rgba(30,41,59,0.95), rgba(15,23,42,0.9));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Testimonial card ───────────────────────────────────────────── */
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.05);
+}
+.dark .testimonial-card {
+  background: rgba(30, 41, 59, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Floating animation for hero icons ──────────────────────────── */
+.floating-icon {
+  animation: float 6s ease-in-out infinite;
+}
+.floating-icon:nth-child(2) { animation-delay: -2s; }
+.floating-icon:nth-child(3) { animation-delay: -4s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-20px); }
+}
+
+/* ── Theme toggle button ────────────────────────────────────────── */
+.theme-toggle {
+  @apply w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.theme-toggle:hover {
+  background: rgba(255,255,255,0.2);
+  transform: rotate(20deg) scale(1.1);
+}
