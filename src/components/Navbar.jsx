@@ -14,6 +14,7 @@ const NAV_LINKS = [
   { href: '/#testimonials', label: 'Reviews' },
   { href: '/#contact',      label: 'Contact' },
   { href: '/receipt',       label: 'Receipts' },
+  { href: '/quotation',     label: 'Quotations' },
 ];
 
 const WHATSAPP_URL = 'https://wa.me/+918454855804';
